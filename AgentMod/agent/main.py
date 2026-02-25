@@ -2,12 +2,10 @@ import os
 import dotenv
 from langchain_classic.agents import initialize_agent, AgentType
 from langchain_core.prompts import HumanMessagePromptTemplate, ChatPromptTemplate
-from langchain_core.utils.function_calling import convert_to_openai_function
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
 from AgentMod.prompt.systemPrompt import SystemPromptTemple as SystemPrompt
 from AgentMod.tools.toos_map import ToolIocContainer
 from AgentMod.utils import logging as log
-from AgentMod.tools.weather import weatherTool as weather
 
 dotenv.load_dotenv()
 
@@ -71,6 +69,6 @@ agent = initialize_agent(
 #
 # 按模板参数格式传入（key必须是question，匹配你的{question}）
 # result = agent.run({"question": your_question})
-result = agent.invoke("今天(2026年2月25)发生了什么大事")
+result = agent.invoke("你说说这个D:\Py_Project\Langcahin\AgentMod\images\img_1772176445_1.jpg图片是什么，具体描述一下里面的内容")
 print(result.get("output"))
 

@@ -8,3 +8,13 @@ tools:
     module: "AgentMod.tools.weather.weatherTool"
     function: "getWeather"
     description: "天气查询工具"
+
+  image_generation:
+    module: "AgentMod.tools.image.imageTool"
+    function: "imageGeneration"
+    description: "图片生成工具"
+
+  image_vision:
+    module: "AgentMod.tools.image.visionTool"
+    function: "imageVisionTool"
+    description: "图片解析工具"
