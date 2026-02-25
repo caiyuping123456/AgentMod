@@ -1,0 +1,10 @@
+tools:
+  web_search:
+    module: "AgentMod.tools.web.webSearchTool"  # py文件名
+    function: "webSearch"    # 工具方法名
+    description: "联网搜索工具"
+
+  weather_search:
+    module: "AgentMod.tools.weather.weatherTool"
+    function: "getWeather"
+    description: "天气查询工具"

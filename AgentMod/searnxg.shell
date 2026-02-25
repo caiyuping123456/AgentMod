@@ -1,0 +1,8 @@
+# 1. 切换到 root 用户（确保有权限）
+su root
+
+# 2. 进入 SearXNG 部署目录（关键！必须在这个目录执行命令）
+cd /home/caiyuping/searxng
+
+# 3. 启动容器（后台运行，-d 表示 detached 模式）
+docker compose up -d
