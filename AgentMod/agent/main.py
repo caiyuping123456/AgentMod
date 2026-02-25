@@ -2,12 +2,10 @@ import os
 import dotenv
 from langchain_classic.agents import initialize_agent, AgentType
 from langchain_core.prompts import HumanMessagePromptTemplate, ChatPromptTemplate
-from langchain_core.utils.function_calling import convert_to_openai_function
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
 from AgentMod.prompt.systemPrompt import SystemPromptTemple as SystemPrompt
 from AgentMod.tools.toos_map import ToolIocContainer
 from AgentMod.utils import logging as log
-from AgentMod.tools.weather import weatherTool as weather
 
 dotenv.load_dotenv()
 
