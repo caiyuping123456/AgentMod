@@ -21,7 +21,7 @@ chat = ChatNVIDIA(
     api_key=os.getenv("API_KEY"),
     # temperature=0.01,  # GLM-5 最优低随机性
     # top_p=0.6,  # 缩小采样范围
-    # max_completion_tokens=256,
+    max_completion_tokens=2048,
     # model_kwargs=model_kwargs,
 )
 
@@ -37,7 +37,7 @@ tools = ToolIocContainer.get_tool()
 systemMessage = SystemPrompt.getSystemPromptTemplate()
 
 humanMessage = HumanMessagePromptTemplate.from_template(
-    template="请你回答{question}是什么？"
+    template="{question}"
 )
 
 chatPrompt = ChatPromptTemplate.from_messages([
@@ -69,6 +69,6 @@ agent = initialize_agent(
 #
 # 按模板参数格式传入（key必须是question，匹配你的{question}）
 # result = agent.run({"question": your_question})
-result = agent.invoke("你说说这个D:\Py_Project\Langcahin\AgentMod\images\img_1772176445_1.jpg图片是什么，具体描述一下里面的内容")
+result = agent.invoke(r"D:\Py_Project\Langcahin\AgentMod\images\text.md文件是一个算法题，请你读取里面的内容，写一个Demo,写到同目录下（用python写）")
 print(result.get("output"))
 

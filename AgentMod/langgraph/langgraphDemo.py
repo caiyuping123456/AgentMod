@@ -3,8 +3,9 @@ from typing import TypedDict, Annotated, Sequence
 import dotenv
 from langchain_core.messages import BaseMessage, HumanMessage, ToolMessage
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
-from langchain_core.tools import tool
 from langgraph.graph import StateGraph, END
+
+from AgentMod.tools.toos_map import ToolIocContainer
 from AgentMod.tools.weather import weatherTool as weather
 import os
 
@@ -13,7 +14,9 @@ dotenv.load_dotenv()
 # os.environ["OPENAI_API_KEY"] = "your-key"
 
 # 1. 定义工具
-tools = [weather.getWeather]
+tool_path = r"D:\Py_Project\Langcahin\AgentMod\tools\tool_config.yaml"
+ToolIocContainer.load_tool_config(tool_path)
+tools = ToolIocContainer.get_tool()
 
 llm = ChatNVIDIA(
     base_url=os.getenv("BASE_URL"),

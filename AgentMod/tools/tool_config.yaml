@@ -18,3 +18,13 @@ tools:
     module: "AgentMod.tools.image.visionTool"
     function: "imageVisionTool"
     description: "图片解析工具"
+
+  parser_doc:
+    module: "AgentMod.tools.docs.resourceDocTool"
+    function: "parser_doc_content"
+    description: "文件或者文件读取工具"
+
+  write_doc:
+    module: "AgentMod.tools.docs.resourceDocTool"
+    function: "write_doc_content"
+    description: "文件写入工具"
