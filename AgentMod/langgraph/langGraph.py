@@ -10,7 +10,7 @@ from AgentMod.langgraph.tools import getTools
 
 tools = getTools()
 LLM_chat = getLLModel()
-LLM_chat.bind_tools(tools)
+LLM_chat = LLM_chat.bind_tools(tools)
 tool_map = {t.name: t for t in tools}
 
 ##定义定义 State
@@ -29,14 +29,14 @@ def tool_node(state: AgentState):
     messages = state["messages"]
     last_message = messages[-1]
     tool_outputs = []
-    for tool in last_message.tool_calls():
+    for tool in last_message.tool_calls:
         name = tool["name"]
         args = tool["args"]
-        tool_call_id = tool_call["id"]
+        tool_call_id = tool["id"]
         if name in tool_map:
             try:
-                tool_call = tool_map[name]
-                result = tool_call.invoke(args)
+                target_tool = tool_map[name]
+                result = target_tool.invoke(args)
                 tool_outputs.append(
                     ToolMessage(content=str(result), tool_call_id=tool_call_id)
                 )
